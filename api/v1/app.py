@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Defines Flask application """
+
+from models import storage
 from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort
@@ -27,5 +29,5 @@ def teardown(exception):
 
 if __name__ == "__main__":
 	host = getenv('HBNB_API_HOST', default='0.0.0.0')
-	port = int(getenv('HBNH_API_PORT', default=5000))
+	port = int(getenv('HBNB_API_PORT', default=5000))
 	app.run(host=host, port=port, threaded=True)
