@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """ Defines Flask application """
-
-from models import storage
 from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort
