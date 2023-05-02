@@ -52,7 +52,7 @@ def view_state(id):
     """ Returns list of all objects, or delete object with given id """
     state = storage.get(State, id)
 
-    if state in None:
+    if state is None:
         return abort(404)
 
     if request.method == 'GET':
