@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" States Views """
+""" Amenities Views """
 from flask import jsonify, make_response, abort, request
 from api.v1.views import app_views
 from models import storage
@@ -52,7 +52,7 @@ def view_amenity(id):
     """ Returns list of all objects, or delete object with given id """
     amenity = storage.get(Amenity, id)
 
-    if amenity in None:
+    if amenity is None:
         return abort(404)
 
     if request.method == 'GET':

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" States Views """
+""" Cities Views """
 from flask import jsonify, make_response, abort, request
 from api.v1.views import app_views
 from models import storage
@@ -18,10 +18,12 @@ def view_cities_of_state(id):
         return abort(404)
 
     if request.method == 'GET':
+
         list = []
         for city in state.cities:
             list.append(city.to_dict())
         return jsonify(list)
+
 
     if request.method == 'POST':
 
