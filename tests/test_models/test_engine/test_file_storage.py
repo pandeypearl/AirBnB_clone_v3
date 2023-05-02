@@ -124,7 +124,8 @@ class TestFileStorage(unittest.TestCase):
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_db_count(self):
-        """ Test funtion count, returns number of objects in given class or all """
+        """ Test funtion count, returns number of objects in given class
+        or all """
         storage = FileStorage()
         initial_value = storage.count()
         instance = State(name='state_test')
