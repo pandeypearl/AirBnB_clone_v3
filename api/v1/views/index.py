@@ -20,7 +20,7 @@ def view_status():
     return response
 
 
-@app_views.route('/status', strict_slashes=False)
+@app_views.route('/stats', strict_slashes=False)
 def storage_stats():
     """ Returns JSON """
     dict = {}
