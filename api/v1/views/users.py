@@ -12,6 +12,7 @@ from models.user import User
 def view_users():
 	""" Returns list of all list objects """
 	if request.method == 'POST':
+		# Get atrributes from request
 		data = request.get_json()
 
 		if isinstance(data, dict):
