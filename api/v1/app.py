@@ -16,18 +16,18 @@ cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.errorhandler(404)
 def error_handler(error):
-	""" Error handler, 404 response """
-	response = jsonify({"error": "Not found"})
-	return response, 404
+    """ Error handler, 404 response """
+    response = jsonify({"error": "Not found"})
+    return response, 404
 
 
 @app.teardown_appcontext
 def teardown(exception):
-	""" close process """
-	storage.close()
+    """ close process """
+    storage.close()
 
 
 if __name__ == "__main__":
-	host = getenv('HBNB_API_HOST', default='0.0.0.0')
-	port = int(getenv('HBNB_API_PORT', default=5000))
-	app.run(host=host, port=port, threaded=True)
+    host = getenv('HBNB_API_HOST', default='0.0.0.0')
+    port = int(getenv('HBNB_API_PORT', default=5000))
+    app.run(host=host, port=port, threaded=True)

@@ -25,13 +25,13 @@ class User(BaseModel, Base):
         last_name = ""
 
     def __setattr__(self, name, value):
-	"""set attributes, use hash to encrypt password"""
-	from hashlib import md5
-	if name == "password":
-	    hash = md5(value.encode('utf-8'))
-	    self.__dict__[name] = hash.hexdigest()
-	else:
-	    self.__dict__[name] = value
+        """set attributes, use hash to encrypt password"""
+        from hashlib import md5
+        if name == "password":
+            hash = md5(value.encode('utf-8'))
+            self.__dict__[name] = hash.hexdigest()
+        else:
+            self.__dict__[name] = value
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
