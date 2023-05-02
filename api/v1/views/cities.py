@@ -17,6 +17,12 @@ def view_cities_of_state(id):
     if state is None:
         return abort(404)
 
+    if request.method == 'GET':
+        list = []
+        for city in state.cities:
+            list.append(city.to_dict())
+        return jsonify(list)
+
     if request.method == 'POST':
 
         data = request.get_json()
@@ -46,12 +52,6 @@ def view_cities_of_state(id):
         storage.save()
         return jsonify(obj.to_dict()), 201
 
-        if request.method == 'GET':
-            list = []
-            for city in states.cities():
-                list.append(city.to_dict())
-                return jsonify(list)
-
 
 @app_views.route('/cities/<id>',
                  strict_slashes=False,
@@ -60,7 +60,7 @@ def view_city_id(id):
     """ Returns list of all objects, or delete object with given id """
     city = storage.get(City, id)
 
-    if state in None:
+    if city is None:
         return abort(404)
 
     if request.method == 'GET':
